@@ -67,14 +67,12 @@ public class TipSet implements Runnable {
         
         if (world == null && perm == null) {
             // tip for everyone
-            Player players[] = Bukkit.getServer().getOnlinePlayers();
-            for(Player p: players) {
+            for(Player p: Bukkit.getServer().getOnlinePlayers()) {
                 p.sendMessage(tip);
             }
         } else if (world == null && perm != null) {
             // global tip with permission
-            Player players[] = Bukkit.getServer().getOnlinePlayers();
-            for(Player p: players) {
+            for(Player p: Bukkit.getServer().getOnlinePlayers()) {
                 if (p.hasPermission(perm) || p.hasPermission("tips.receive.*")) {
                     p.sendMessage(tip);
                 }
